@@ -1,3 +1,10 @@
+"""
+ArV_NeuroSynth: An Auto-regressive Variational Model for EEG Synthesis
+
+This module implements the ArV_NeuroSynth model, which combines variational autoencoding
+and adversarial training for EEG data generation and analysis.
+"""
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -97,6 +104,13 @@ class LatentDiscriminator(nn.Module):
 # Main Model
 # --------------------
 class ArV_NeuroSynth(nn.Module):
+    """
+    ArV_NeuroSynth Model
+
+    An auto-regressive variational model for EEG synthesis, featuring an encoder, decoder,
+    latent generator, and latent discriminator.
+    """
+    model_name = "ArV_NeuroSynth"
     def __init__(self, input_channels=4, seq_length=256, latent_dim=32, noise_dim=50):
         super().__init__()
         self.encoder = Encoder(input_channels, latent_dim)
