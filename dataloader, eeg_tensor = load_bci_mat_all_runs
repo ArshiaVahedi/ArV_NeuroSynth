@@ -1,0 +1,1 @@
+dataloader, eeg_tensor = load_bci_mat_all_runs("A01T.mat")

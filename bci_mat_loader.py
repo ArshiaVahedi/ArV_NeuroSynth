@@ -20,7 +20,6 @@ class EEGDataset(Dataset):
 
 def load_bci_mat(filepath, num_channels=4, segment_length=256, batch_size=32):
     mat = scipy.io.loadmat(filepath)
-    # Directly access the EEG data
     X = mat['data'][0, 0][0, 0]['X']  # shape (29683, 25)
     eeg = X[:, :num_channels].T       # shape (num_channels, time_steps)
     eeg_tensor = torch.tensor(eeg, dtype=torch.float32)
